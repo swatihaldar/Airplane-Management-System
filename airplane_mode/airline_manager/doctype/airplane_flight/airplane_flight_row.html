@@ -1,0 +1,30 @@
+<div class="flight-box">
+	<h3>
+        {{ doc.airplane }}
+    </h3>
+	<p>{{ doc.source_airport_code }} ➜ {{ doc.destination_airport_code }}</p>
+	<p>{{ frappe.utils.format_date(doc.date_of_departure, "d MMMM, YYYY") }} | {{ doc.time_of_departure }} | {{ frappe.utils.format_duration(doc.duration)}}</p>
+	<a href="/{{ doc.route |e }}">View Flights</a>
+</div>
+
+
+<style>
+	.flight-box{
+		border: 1px solid #ddd;
+		padding: 15px;
+		border-radius: 10px;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+		margin-bottom: 20px;
+		background-color: #f9f9f9;
+	}
+
+	.flight-box h3 {
+        margin-top: 0;
+    }
+
+	.flight-box a {
+        color: rgb(0, 174, 255);
+		font-weight: bold;
+    }
+</style>
+

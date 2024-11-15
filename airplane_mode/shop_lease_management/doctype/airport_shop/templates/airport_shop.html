@@ -1,0 +1,103 @@
+<div class="shop-details">
+    <h2 class="shop-title">{{ shop_name }}({{ shop_number }})</h2>
+    {% if shop_image %}
+        <div class="shop-image">
+            <img src="{{ shop_image }}" alt="{{ shop_name }}" />
+        </div>
+    {% endif %}
+    
+    <p class="shop-description">{{ description }}</p>
+    <div class="shop-info">
+        <p><strong>Shop Number:</strong> {{ shop_number }}</p>
+        <p><strong>Shop Type:</strong> {{ shop_type }}</p>
+        <p><strong>Area:</strong> {{ physical_area }} sq ft</p>
+    </div>
+    <div class="shop-location">
+        <h3>Location</h3>
+        <p>{{ airport }}</p>
+    </div>
+</div>
+
+<style>
+    .shop-details {
+        border: 1px solid #ddd;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        max-width: 550px;
+        margin: 25px auto;
+        font-family: 'Arial', sans-serif;
+        color: #333;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .shop-image {
+        margin: 15px auto 25px;
+        overflow: hidden;
+        border-radius: 10px;
+        max-width: 90%;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .shop-image img {
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+        border-radius: 10px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .shop-image img:hover {
+        transform: scale(1.05);
+    }
+
+    .shop-title {
+        margin-top: 0;
+        font-size: 2em;
+        color: #007bff;
+        border-bottom: 3px solid #007bff;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    .shop-description {
+        font-size: 1.2em;
+        color: #666;
+        margin: 10px 0 25px;
+        padding: 0 15px;
+    }
+
+    .shop-info p {
+        font-size: 1.1em;
+        color: #555;
+        margin: 10px 0;
+        font-weight: 500;
+    }
+
+    .shop-info p strong {
+        font-weight: bold;
+        color: #007bff;
+    }
+
+    .shop-location {
+        margin-top: 30px;
+        font-size: 1.2em;
+        color: #333;
+    }
+
+    .shop-location h3 {
+        font-size: 1.5em;
+        color: #007bff;
+        margin-bottom: 10px;
+    }
+
+    .shop-details:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        transform: translateY(-3px);
+    }
+</style>
+

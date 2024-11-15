@@ -1,0 +1,192 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{shop_name}-{shop_number}",
+ "creation": "2024-11-05 10:59:44.928772",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "image",
+  "shop_details_section",
+  "is_published",
+  "shop_name",
+  "shop_number",
+  "shop_type",
+  "physical_area",
+  "route",
+  "column_break_dunz",
+  "airport",
+  "description",
+  "shop_image",
+  "status",
+  "section_break_mfrk",
+  "tenant",
+  "email",
+  "column_break_kfoa",
+  "contract_number",
+  "address"
+ ],
+ "fields": [
+  {
+   "fieldname": "shop_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Shop Name",
+   "reqd": 1
+  },
+  {
+   "description": "(sq ft)",
+   "fieldname": "physical_area",
+   "fieldtype": "Float",
+   "label": "Physical Area"
+  },
+  {
+   "fieldname": "shop_number",
+   "fieldtype": "Data",
+   "label": "Shop Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tenant",
+   "fieldtype": "Link",
+   "label": "Tenant",
+   "options": "Tenant"
+  },
+  {
+   "fieldname": "column_break_dunz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_published",
+   "fieldtype": "Check",
+   "label": "Is Published"
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Route",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Available\nOccupied",
+   "read_only": 1
+  },
+  {
+   "fieldname": "shop_type",
+   "fieldtype": "Select",
+   "label": "Shop Type",
+   "options": "Retail\nFood & Beverage\nService"
+  },
+  {
+   "fieldname": "airport",
+   "fieldtype": "Link",
+   "label": "Airport ",
+   "options": "Airport"
+  },
+  {
+   "fieldname": "shop_image",
+   "fieldtype": "Attach Image",
+   "label": "Shop Image"
+  },
+  {
+   "fieldname": "shop_details_section",
+   "fieldtype": "Section Break",
+   "label": "Shop Details"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "section_break_mfrk",
+   "fieldtype": "Section Break",
+   "label": "Tenant Detals"
+  },
+  {
+   "fieldname": "column_break_kfoa",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "tenant.email",
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "tenant.contact_number",
+   "fieldname": "contract_number",
+   "fieldtype": "Phone",
+   "label": "Contract Number",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "tenant.address",
+   "fieldname": "address",
+   "fieldtype": "Small Text",
+   "label": "Address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "HTML",
+   "label": "Image"
+  }
+ ],
+ "has_web_view": 1,
+ "index_web_pages_for_search": 1,
+ "is_published_field": "is_published",
+ "links": [
+  {
+   "link_doctype": "Lease Contract",
+   "link_fieldname": "shop"
+  },
+  {
+   "link_doctype": "Rent Payment",
+   "link_fieldname": "contract"
+  }
+ ],
+ "modified": "2024-11-12 23:56:10.768863",
+ "modified_by": "Administrator",
+ "module": "Shop Lease Management",
+ "name": "Airport Shop",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "route": "shop",
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Green",
+   "title": "Available"
+  },
+  {
+   "color": "Purple",
+   "title": "Occupied"
+  }
+ ],
+ "title_field": "shop_name"
+}

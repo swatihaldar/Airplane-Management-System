@@ -1,0 +1,19 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<h1>{{ title |e }}</h1>
+<h2>Flight Details</h2>
+
+<ul>
+    <li>Airline: {{ doc.airplane }}</li>
+    <li>{{ doc.source_airport_code }} ➜ {{ doc.destination_airport_code }}</li>
+    <li>{{ doc.date_of_departure }} | {{ doc.time_of_departure }}</li>
+    <li>
+        Duration: 
+         {{ frappe.utils.format_duration(doc.duration)}}
+    </li>
+</ul>
+
+<a class="btn btn-info" href="/book-ticket-web-form/new">Book Now</a>
+
+{% endblock %}

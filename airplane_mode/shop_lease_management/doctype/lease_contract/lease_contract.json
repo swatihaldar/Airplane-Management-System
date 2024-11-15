@@ -1,0 +1,162 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:LC-{shop}",
+ "creation": "2024-11-05 12:27:11.374537",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "shop_and_tenant_information_section",
+  "shop",
+  "shop_number",
+  "airport",
+  "column_break_tgya",
+  "tenant",
+  "tenant_email",
+  "tenant_contract",
+  "section_break_iacg",
+  "contract_start_date",
+  "rent_amount",
+  "status",
+  "column_break_tiqe",
+  "contract_end_date",
+  "payment_status"
+ ],
+ "fields": [
+  {
+   "fetch_from": "shop.tenant",
+   "fieldname": "tenant",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Tenant",
+   "read_only": 1
+  },
+  {
+   "fieldname": "shop",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Shop",
+   "link_filters": "[]",
+   "options": "Airport Shop",
+   "reqd": 1
+  },
+  {
+   "fieldname": "rent_amount",
+   "fieldtype": "Currency",
+   "label": "Rent Amount",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "column_break_tgya",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contract_start_date",
+   "fieldtype": "Date",
+   "label": "Contract Start Date"
+  },
+  {
+   "fieldname": "contract_end_date",
+   "fieldtype": "Date",
+   "label": "Contract End Date"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nExpired"
+  },
+  {
+   "fetch_from": "shop.shop_number",
+   "fieldname": "shop_number",
+   "fieldtype": "Data",
+   "label": "Shop Number",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "shop.airport",
+   "fieldname": "airport",
+   "fieldtype": "Data",
+   "label": "Airport",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "shop.contract_number",
+   "fieldname": "tenant_contract",
+   "fieldtype": "Phone",
+   "label": "Tenant Contract",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "shop.email",
+   "fieldname": "tenant_email",
+   "fieldtype": "Data",
+   "label": "Tenant Email",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_iacg",
+   "fieldtype": "Section Break",
+   "label": "Contract Details"
+  },
+  {
+   "fieldname": "column_break_tiqe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "payment_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Payment status",
+   "options": "Unpaid\nPaid",
+   "read_only": 1
+  },
+  {
+   "fieldname": "shop_and_tenant_information_section",
+   "fieldtype": "Section Break",
+   "label": "Shop and Tenant Information"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Rent Payment",
+   "link_fieldname": "contract"
+  }
+ ],
+ "modified": "2024-11-12 19:21:30.735621",
+ "modified_by": "Administrator",
+ "module": "Shop Lease Management",
+ "name": "Lease Contract",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Blue",
+   "title": "Active"
+  },
+  {
+   "color": "Red",
+   "title": "Expired"
+  }
+ ],
+ "title_field": "shop"
+}

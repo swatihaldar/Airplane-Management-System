@@ -1,0 +1,164 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:RR-{###}",
+ "creation": "2024-11-05 12:50:50.410071",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "tenant_and_shop_information_section",
+  "contract",
+  "rent_amount",
+  "start_date",
+  "column_break_cocf",
+  "shop",
+  "tenant",
+  "end_date",
+  "payment_details_section",
+  "payment_date",
+  "payment_method",
+  "column_break_bvna",
+  "amount_paid",
+  "payment_status",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "contract",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Contract",
+   "options": "Lease Contract",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amount_paid",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount Paid",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "payment_date",
+   "fieldtype": "Date",
+   "label": "Payment Date"
+  },
+  {
+   "fieldname": "payment_method",
+   "fieldtype": "Select",
+   "label": "Payment Method",
+   "options": "Cash\nBank Transfer\nCredit Card",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_cocf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "contract.shop",
+   "fieldname": "shop",
+   "fieldtype": "Data",
+   "label": "Shop"
+  },
+  {
+   "fetch_from": "contract.tenant",
+   "fieldname": "tenant",
+   "fieldtype": "Data",
+   "label": "Tenant "
+  },
+  {
+   "fieldname": "payment_details_section",
+   "fieldtype": "Section Break",
+   "label": "Payment Details"
+  },
+  {
+   "fieldname": "tenant_and_shop_information_section",
+   "fieldtype": "Section Break",
+   "label": "Tenant and Shop Information"
+  },
+  {
+   "fetch_from": "contract.contract_start_date",
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "start Date"
+  },
+  {
+   "fetch_from": "contract.contract_end_date",
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date"
+  },
+  {
+   "fieldname": "column_break_bvna",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "contract.rent_amount",
+   "fieldname": "rent_amount",
+   "fieldtype": "Currency",
+   "label": "Rent Amount",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Rent Payment",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "payment_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Payment Status",
+   "options": "Unpaid\nPaid\nOverdue",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-11-11 01:29:40.772059",
+ "modified_by": "Administrator",
+ "module": "Shop Lease Management",
+ "name": "Rent Payment",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Red",
+   "title": "Unpaid"
+  },
+  {
+   "color": "Green",
+   "title": "Paid"
+  },
+  {
+   "color": "Yellow",
+   "title": "Overdue"
+  }
+ ],
+ "title_field": "contract"
+}
